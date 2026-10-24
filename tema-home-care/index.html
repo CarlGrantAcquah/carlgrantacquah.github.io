@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta name="description" content="AC servicing, fumigation and sofa cleaning in Tema and Ashaiman. Free quote on WhatsApp in 2 minutes." />
+    <meta name="description" content="AC servicing and gas refill, fumigation and sofa, carpet and mattress cleaning in Tema, Ashaiman, Spintex, Sakumono and Community 25. Book a free estimate." />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Tema Home Care — Get a Free Quote in 2 Minutes</title>
@@ -13,6 +13,10 @@
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="hero.css" />
+    <!-- META PIXEL PLACEHOLDER: paste the Meta Pixel base code here (between these comments) once Carl has the Pixel ID.
+         Then on thank-you.html add: fbq('track','Lead'); -->
+    <!-- /META PIXEL PLACEHOLDER -->
+
     <style>
       .x-form { max-width: 640px; padding: 22px 24px; border-radius: var(--r-m); background: var(--fill-tertiary); display: grid; gap: 18px; }
       .x-field { display: grid; gap: 6px; border: 0; margin: 0; padding: 0; min-width: 0; }
@@ -49,13 +53,13 @@
           <div class="hero__copy">
             <p class="hero__eyebrow">Tema Home Care · Free quote in 2 minutes</p>
             <h1>AC, fumigation &amp; sofa cleaning in Tema and Ashaiman</h1>
-            <p class="hero__sub">Tell us what you need. We send you a clear price on WhatsApp. No visit needed to quote.</p>
-            <p class="hero__meta">Tema · Ashaiman · Spintex · Community 1–25</p>
+            <p class="hero__sub">Tell us what you need. We reply on WhatsApp, arrange a free estimate (from photos or a quick visit), and confirm your price before any work starts.</p>
+            <p class="hero__meta">Tema · Ashaiman · Spintex · Sakumono · Community 25</p>
           </div>
           <aside class="callout" aria-label="Next step">
             <p class="callout__head">Next step</p>
-            <p class="callout__lead"><strong>Fill a short form.</strong> Your request opens in WhatsApp, ready to send.</p>
-            <a class="btn" href="#quote">Get my free quote</a>
+            <p class="callout__lead"><strong>Fill a short booking form.</strong> We get your request, and it opens in WhatsApp, ready to send.</p>
+            <a class="btn" href="#quote">Book a free estimate</a>
           </aside>
         </section>
 
@@ -107,10 +111,10 @@
           </div>
         </section>
 
-        <section class="section" id="quote" data-nav="Free quote">
+        <section class="section" id="quote" data-nav="Book">
           <div class="head">
-            <p class="head__eyebrow">Free quote</p>
-            <h2>Tell us what you need, and send it on WhatsApp.</h2>
+            <p class="head__eyebrow">Book a free estimate</p>
+            <h2>Tell us what you need. We'll reply on WhatsApp.</h2>
             <p class="head__sub">Fields marked * are required.</p>
           </div>
 
@@ -129,11 +133,11 @@
               <label for="area">Area <span class="x-req">*</span></label>
               <select class="x-input" id="area" name="area" required>
                 <option value="">Choose your area</option>
+                <option>Tema</option>
+                <option>Community 25</option>
                 <option>Ashaiman</option>
-                <option>Tema Community 1–12</option>
-                <option>Tema Community 13–25</option>
                 <option>Spintex</option>
-                <option>Sakumono/Lashibi</option>
+                <option>Sakumono</option>
                 <option>Other</option>
               </select>
               <p class="x-error" id="area-err" hidden>Please choose your area.</p>
@@ -147,8 +151,8 @@
             <fieldset class="x-field">
               <legend>Service <span class="x-req">*</span></legend>
               <div class="x-options">
-                <label class="x-opt"><input type="radio" name="service" value="AC servicing" /> AC servicing</label>
-                <label class="x-opt"><input type="radio" name="service" value="Fumigation" /> Fumigation</label>
+                <label class="x-opt"><input type="radio" name="service" value="AC servicing" /> AC servicing / gas refill</label>
+                <label class="x-opt"><input type="radio" name="service" value="Fumigation" /> Fumigation / pest control</label>
                 <label class="x-opt"><input type="radio" name="service" value="Sofa/carpet/mattress cleaning" /> Sofa/carpet/mattress cleaning</label>
               </div>
               <p class="x-error" id="service-err" hidden>Please choose a service.</p>
@@ -179,9 +183,9 @@
 
             <div class="x-group" id="grp-fum" hidden>
               <div class="x-field">
-                <label for="property">Property type</label>
-                <select class="x-input" id="property">
-                  <option value="">Choose property type</option>
+                <label for="size">Size</label>
+                <select class="x-input" id="size">
+                  <option value="">Choose size</option>
                   <option>Single room</option>
                   <option>Chamber &amp; hall</option>
                   <option>2-bedroom</option>
@@ -220,6 +224,19 @@
             </div>
 
             <div class="x-field">
+              <label for="ptype">Property type</label>
+              <select class="x-input" id="ptype" name="ptype">
+                <option value="">Choose property type</option>
+                <option>Home / apartment</option>
+                <option>Office</option>
+                <option>Shop</option>
+                <option>Guest house / hotel</option>
+                <option>Church / school</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="x-hide" hidden aria-hidden="true"><label>Leave empty <input id="website" tabindex="-1" autocomplete="off" /></label></div>
+            <div class="x-field">
               <label for="date">Preferred date</label>
               <input class="x-input" id="date" type="date" />
             </div>
@@ -235,13 +252,14 @@
               <label for="notes">Extra notes <span class="x-req">(optional)</span></label>
               <textarea class="x-input" id="notes" rows="3"></textarea>
             </div>
-            <p class="fineprint">You can send photos on WhatsApp after this.</p>
-            <button class="x-submit" type="submit">Send my request on WhatsApp</button>
+            <p class="fineprint">Your details go into our private job sheet and are used only to arrange your service (<a href="privacy.html">privacy</a>). You can send photos on WhatsApp next.</p>
+            <p class="x-error" id="send-err" hidden>We couldn't save your request. Please send it on WhatsApp using the button below.</p>
+            <button class="x-submit" id="submitBtn" type="submit">Book my free estimate</button>
           </form>
 
           <div class="x-thanks" id="thanks" hidden tabindex="-1">
             <h3>Thank you! Your request is ready in WhatsApp.</h3>
-            <p>Press send in WhatsApp and we will reply with your price. You can add photos there too.</p>
+            <p>Press send in WhatsApp and we'll reply to arrange your free estimate. You can add photos there too.</p>
             <div class="links">
               <a class="btn" id="waFallback" href="https://wa.me/233559328385" target="_blank" rel="noopener">Tap here if WhatsApp didn't open</a>
               <a class="btn" href="#quote" id="again">Edit my request</a>
@@ -252,11 +270,24 @@
         <section class="section" id="why" data-nav="Why us">
           <div class="head"><h2>Why people choose us.</h2></div>
           <ul class="checklist">
-            <li><span class="checklist__item">Free quotes, no visit needed</span></li>
+            <li><span class="checklist__item">Free estimate before any work</span></li>
             <li><span class="checklist__item">Vetted, experienced technicians</span></li>
             <li><span class="checklist__item">Pay a deposit, balance after the job</span></li>
-            <li><span class="checklist__item">Serving Tema, Ashaiman and Spintex</span></li>
+            <li><span class="checklist__item">Serving Tema, Ashaiman, Spintex, Sakumono and Community 25</span></li>
           </ul>
+        </section>
+
+        <section class="section" id="pay" data-nav="Pay deposit">
+          <div class="head">
+            <p class="head__eyebrow">Pay deposit</p>
+            <h2>Pay only after we confirm your price on WhatsApp.</h2>
+            <p class="head__sub">Once Carl confirms your price and gives you your Job ID, you pay a 50% deposit to book the job. You pay the balance after the job is done and you're happy with it.</p>
+          </div>
+          <div class="links">
+            <a class="btn" href="https://paystack.shop/pay/tema-home-care-deposit" target="_blank" rel="noopener">Pay deposit or balance (Paystack)</a>
+            <a class="btn" href="pay.html">How payment works</a>
+          </div>
+          <p class="fineprint">Paystack accepts Mobile Money and cards. Type the exact amount we confirmed and your Job ID. Prefer to pay by MoMo directly? Ask us on WhatsApp.</p>
         </section>
 
         <section class="section" id="contact" data-nav="Contact">
@@ -270,7 +301,7 @@
         </section>
       </main>
       <footer class="foot">
-        <p>Prices depend on size and condition; your quote is confirmed before any work starts.</p>
+        <p>Prices depend on size and condition; your price is confirmed before any work starts. <a href="privacy.html">Privacy</a> · <a href="pay.html">Payments</a></p>
         <nav aria-label="Back to sections" data-auto></nav>
         
       </footer>
@@ -336,7 +367,7 @@
             lines.push("Not cooling well: " + (checked("acCooling") || "Not given"));
           } else if (service === "Fumigation") {
             var pests = Array.prototype.map.call(form.querySelectorAll('input[name="pests"]:checked'), function (c) { return c.value; });
-            lines.push("Property type: " + ($("property").value || "Not given"));
+            lines.push("Size: " + ($("size").value || "Not given"));
             lines.push("Pests: " + (pests.length ? pests.join(", ") : "Not given"));
           } else {
             lines.push("Sofa seats: " + ($("seats").value || "0"));
@@ -350,10 +381,37 @@
           }
           lines.push("Preferred date: " + (d || "Flexible"));
           lines.push("Best time: " + (checked("time") || "Any time"));
+          var ptype = $("ptype").value;
+          if (ptype) lines.push("Property type: " + ptype);
           var notes = $("notes").value.trim();
           if (notes) lines.push("Notes: " + notes);
 
           var url = WA + "?text=" + encodeURIComponent(lines.join("\n"));
+          // Details for the Jobs Board (service-specific lines, minus name/phone/area/date header)
+          var detail = lines.slice(6).filter(function (l) { return !/^(Preferred date|Property type):/.test(l); }).join("; ");
+          var fd = new URLSearchParams();
+          fd.append("entry.1324724388", name);
+          fd.append("entry.1912194279", phone);
+          fd.append("entry.1959242836", area.value === "Other" ? "Other" : area.value);
+          fd.append("entry.1758063815", service === "AC servicing" ? "AC servicing" : service === "Fumigation" ? "Fumigation / pest control" : ($("seats").value > 0 ? "Sofa cleaning" : $("carpets").value > 0 ? "Carpet cleaning" : $("mattresses").value > 0 ? "Mattress cleaning" : "Sofa cleaning"));
+          fd.append("entry.419018066", (area.value === "Other" ? "Area: " + areaText + "; " : "") + "Service: " + service + "; " + detail);
+          fd.append("entry.1429373445", ($("date").value || "Flexible") + " (" + (checked("time") || "Any time") + ")");
+          if (ptype) fd.append("entry.1988364130", ptype);
+          fd.append("entry.785148477", "Website form" + (location.search.indexOf("utm_source=") > -1 ? " – " + location.search.replace(/.*utm_source=([^&]*).*/, "$1") : ""));
+          try { sessionStorage.setItem("thc_wa", url); sessionStorage.setItem("thc_name", name); } catch (err) {}
+          if ($("website").value) { location.href = "thank-you.html"; return; }
+          var btn = $("submitBtn"); btn.disabled = true; btn.textContent = "Sending…";
+          var done = false;
+          var go = function () { if (done) return; done = true; location.href = "thank-you.html"; };
+          var fail = function () {
+            if (done) return; done = true;
+            btn.disabled = false; btn.textContent = "Book my free estimate";
+            $("send-err").hidden = false;
+            fallback.href = url; form.hidden = true; thanks.hidden = false; thanks.focus();
+          };
+          fetch("https://docs.google.com/forms/d/e/1FAIpQLSeJPyLZG1eMy7oVGnLuNfn4u25tMa-BXtzNJfaZdk3GdvnfpQ/formResponse", { method: "POST", mode: "no-cors", body: fd }).then(go, fail);
+          setTimeout(go, 6000);
+          return;
           fallback.href = url;
           form.hidden = true;
           thanks.hidden = false;
