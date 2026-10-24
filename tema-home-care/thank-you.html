@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Thank you for your booking request." />
+    <meta name="robots" content="noindex" />
+    <title>Thank you · Tema Home Care</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&display=swap" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- META PIXEL PLACEHOLDER: paste the Meta Pixel base code here (between these comments) once Carl has the Pixel ID. -->
+    <!-- /META PIXEL PLACEHOLDER -->
+    <style>
+      .doc { max-width: 70ch; display: grid; gap: 14px; }
+      .doc h3 { font: var(--type-heading); margin-top: 8px; }
+      .doc ul { padding-left: 1.2em; display: grid; gap: 6px; }
+      .doc a { text-decoration: underline; }
+      .x-thanks { max-width: 640px; padding: 22px 24px; border-radius: var(--r-m); background: var(--fill-tertiary); display: grid; gap: 12px; }
+      .x-thanks h3 { font: var(--type-heading); }
+    </style>
+  </head>
+  <body>
+    <div class="page" id="top">
+      <header class="nav glass" data-auto></header>
+      <main class="main">
+        <section class="section" id="thanks" data-nav="Thank you">
+          <div class="head">
+            <p class="head__eyebrow" id="eyebrow">Request received</p>
+            <h2 id="ttl">Thank you! We've got your request.</h2>
+            <p class="head__sub" id="sub">One last step: send it to us on WhatsApp so we can reply quickly and arrange your free estimate. You can add photos or a short video there.</p>
+          </div>
+          <div class="x-thanks">
+            <div class="links">
+              <a class="btn" id="waBtn" href="https://wa.me/233559328385" rel="noopener">Open WhatsApp with my details</a>
+              <a class="btn" href="./">Back to home</a>
+            </div>
+            <p class="fineprint" id="note">WhatsApp should open by itself in a moment. If it doesn't, tap the button above. Or call us on <a href="tel:+233559328385">0559 328 385</a>.</p>
+          </div>
+        </section>
+        <section class="section" id="next" data-nav="What happens next">
+          <div class="head"><h2>What happens next.</h2></div>
+          <ul class="checklist">
+            <li><span class="checklist__item">We reply on WhatsApp and ask a few quick questions</span></li>
+            <li><span class="checklist__item">Free estimate, from photos or a quick visit</span></li>
+            <li><span class="checklist__item">We confirm your price before any work starts</span></li>
+            <li><span class="checklist__item">50% deposit to book, balance after the job</span></li>
+          </ul>
+        </section>
+
+      </main>
+      <footer class="foot">
+        <p><strong>Tema Home Care</strong> · WhatsApp or call <a href="https://wa.me/233559328385">0559 328 385</a> · <a href="./">Home</a> · <a href="privacy.html">Privacy</a> · <a href="pay.html">Payments</a></p>
+        <nav aria-label="Back to sections" data-auto></nav>
+      </footer>
+    </div>
+    <script src="main.js"></script>
+    <script>
+      (function () {
+        var q = location.search;
+        var wa = null, name = "";
+        try { wa = sessionStorage.getItem("thc_wa"); name = sessionStorage.getItem("thc_name") || ""; } catch (e) {}
+        var btn = document.getElementById("waBtn");
+        if (/[?&]paid=1/.test(q)) {
+          document.getElementById("eyebrow").textContent = "Payment received";
+          document.getElementById("ttl").textContent = "Thank you! Your payment went through.";
+          document.getElementById("sub").textContent = "Paystack has confirmed your payment. Please send us a quick WhatsApp with your Job ID so we can confirm your booking.";
+          var ref = (q.match(/[?&](?:reference|trxref)=([^&]+)/) || [])[1] || "";
+          var msg = "Hello Tema Home Care, I've just paid on Paystack." + (ref ? " Reference: " + decodeURIComponent(ref) + "." : "") + " My Job ID is: ";
+          btn.href = "https://wa.me/233559328385?text=" + encodeURIComponent(msg);
+          btn.textContent = "Tell us on WhatsApp";
+          document.getElementById("note").textContent = "Keep your Paystack receipt (it's emailed to you).";
+          return;
+        }
+        if (wa) {
+          btn.href = wa;
+          if (name) document.getElementById("ttl").textContent = "Thank you, " + name + "! We've got your request.";
+          // Lead event for Meta Pixel (fires only once the pixel code is added)
+          if (window.fbq) { try { fbq("track", "Lead"); } catch (e) {} }
+          setTimeout(function () { try { sessionStorage.removeItem("thc_wa"); } catch (e) {} window.location.href = wa; }, 1800);
+        } else {
+          btn.href = "https://wa.me/233559328385?text=" + encodeURIComponent("Hello Tema Home Care, I'd like a free estimate.");
+          document.getElementById("note").textContent = "Tap the button to chat with us on WhatsApp, or call 0559 328 385.";
+        }
+      })();
+    </script>
+  </body>
+</html>
